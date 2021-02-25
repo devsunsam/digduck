@@ -6,4 +6,23 @@
             TEST
     </div>
 
+    <form action="/account/hello_world/" method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="hello_world_input">
+        </div>
+
+        <div>
+            <input type="submit" class="btn btn-primary" value="POST">
+        </div>
+    </form>
+
+   {% if hello_world_list %}
+        {% for hello_world in hello_world_list %}
+        <h1>
+            {{hello_world.text}}
+        </h1>
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}
